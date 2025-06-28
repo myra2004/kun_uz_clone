@@ -23,7 +23,7 @@ class NewsAdmin(admin.ModelAdmin):
             'fields': ('title_ru', 'content_ru')
         }),
         (_("Main"), {
-            'fields': ('author', 'category', 'tags', 'default_image')
+            'fields': ('author', 'category', 'tags', 'default_image', 'slug')
         })
     )
 
@@ -43,6 +43,9 @@ class CategoryAdmin(admin.ModelAdmin):
         }),
         (_("Russian"), {
             'fields': ('name_ru',)
+        }),
+        (_("Main"), {
+            'fields': ('slug',)
         })
     )
 
@@ -62,6 +65,9 @@ class TagAdmin(admin.ModelAdmin):
         }),
         (_("Russian"), {
             'fields': ('name_ru',)
+        }),
+        (_("Main"), {
+            'fields': ('slug',)
         })
     )
 

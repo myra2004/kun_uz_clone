@@ -12,4 +12,4 @@ class BaseModel(models.Model):
 class MediaFile(BaseModel):
     media_type = models.CharField(max_length=255)
     file = models.FileField(upload_to='files/')
-    news = models.ForeignKey('news.News', on_delete=models.CASCADE, related_name='media_files')
+    news = models.ForeignKey('news.News', on_delete=models.CASCADE, related_name='media_files', null=True, blank=True)

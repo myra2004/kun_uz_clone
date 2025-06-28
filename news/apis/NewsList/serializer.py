@@ -8,7 +8,7 @@ class NewsListSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'category',
-            'tags'
+            'tags',
             'author',
             'default_image'
         ]

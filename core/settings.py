@@ -355,3 +355,15 @@ CACHES = {
 
 CELERY_BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
 CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}"
+
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False  # Важно: True — если PORT = 465, False — если PORT = 587
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # Gmail адрес
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # Gmail пароль или App Password
+
+TOKEN_EXPIRY_SECONDS = 3600
