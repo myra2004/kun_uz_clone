@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
 from news.models import Category
+from .serializer import CategoryCreateSerializer
 
 
 class CategoryCreateAPIView(CreateAPIView):
