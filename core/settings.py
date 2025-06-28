@@ -48,6 +48,7 @@ DJANGO_APPS = [
 ]
 
 EXTERNAL_APPS = [
+    'jazzmin',
     'rest_framework',
     'rosetta',
     # 'modeltranslation',
@@ -173,3 +174,80 @@ LOCAL_PATHS = [
 ]
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+
+
+# Jazzmin
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Kun uz Admin",
+
+    "site_header": "Kun uz ",
+
+    "site_logo_classes": "img-circle",
+
+    "welcome_sign": "Welcome to the Kun uz",
+
+    "search_model": ["auth.User", "auth.Group"],
+
+    "user_avatar": "avatar",
+
+    ############
+    # Top Menu #
+    ############
+
+    # Links to put along the top menu
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        # external url that opens in a new window (Permissions can be added)
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+
+        # App with dropdown menu to all its models pages (Permissions checked against models)
+        {"app": "accounts"},
+    ],
+
+    #############
+    # Side Menu #
+    #############
+
+    # Whether to display the side menu
+    "show_sidebar": True,
+
+    # Whether to aut expand the menu
+    "navigation_expanded": False,
+
+    "hide_apps": [],
+
+    "hide_models": [],
+
+    "custom_links": {
+        "books": [{
+            "name": "Make Messages",
+            "url": "make_messages",
+            "icon": "fas fa-comments",
+            "permissions": ["books.view_book"]
+        }]
+    },
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+
+    "related_modal_active": False,
+
+    "custom_css": None,
+    "custom_js": None,
+    "use_google_fonts_cdn": True,
+    "show_ui_builder": True,
+
+    "changeform_format": "carousel",
+    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
+    # Add a language dropdown into the admin
+    "language_chooser": False,
+}
