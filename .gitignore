@@ -6,3 +6,6 @@ env
 
 .locale
 locale
+
+logs
+.logs
