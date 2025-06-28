@@ -11,5 +11,5 @@ urlpatterns = [
     path('logout/', SessionLogoutAPIView.as_view(), name='log-out'),
 
     path('reset_password/', RequestPasswordResetView.as_view(), name='reset-password'),
-    path('reset_password/confirm/', PasswordResetConfirmView.as_view(), name='reset-password-confirm'),
+    path('reset_password/confirm/', VerifyEmailView.as_view(), name='reset-password-confirm'),
 ]
