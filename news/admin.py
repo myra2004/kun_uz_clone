@@ -13,7 +13,18 @@ class NewsAdmin(admin.ModelAdmin):
     search_fields = ('title',)
 
     fieldsets = (
-        (None, {'fields': ('title', 'content', 'author', 'category', 'tags', 'default_image')}),
+        (_("Uzbek"), {
+            'fields': ('title_uz', 'content_uz')
+        }),
+        (_("English"), {
+            'fields': ('title_en', 'content_en')
+        }),
+        (_("Russian"), {
+            'fields': ('title_ru', 'content_ru')
+        }),
+        (_("Main"), {
+            'fields': ('author', 'category', 'tags', 'default_image')
+        })
     )
 
 
@@ -23,12 +34,36 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
     search_fields = ('name',)
 
+    fieldsets = (
+        (_("Uzbek"), {
+            'fields': ('name_uz',)
+        }),
+        (_("English"), {
+            'fields': ('name_en',)
+        }),
+        (_("Russian"), {
+            'fields': ('name_ru',)
+        })
+    )
+
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
+
+    fieldsets = (
+        (_("Uzbek"), {
+            'fields': ('name_uz',)
+        }),
+        (_("English"), {
+            'fields': ('name_en',)
+        }),
+        (_("Russian"), {
+            'fields': ('name_ru',)
+        })
+    )
 
 
 @admin.register(Comment)

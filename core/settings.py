@@ -59,7 +59,7 @@ EXTERNAL_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rosetta',
-    # 'modeltranslation',
+    'modeltranslation',
 ]
 
 TRANSLATABLE_MODEL_MODULES = (
@@ -267,7 +267,7 @@ JAZZMIN_SETTINGS = {
     "changeform_format": "carousel",
     "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
     # Add a language dropdown into the admin
-    "language_chooser": False,
+    "language_chooser": True,
 }
 
 
