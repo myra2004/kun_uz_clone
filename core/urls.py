@@ -16,12 +16,16 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
 
 from core import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+]
+
+extra_urls = [
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 static_media_urls = (
@@ -30,5 +34,11 @@ static_media_urls = (
     static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 )
 
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        re_path(r'^rosetta/', include('rosetta.urls')),
+    ]
+
 
 urlpatterns += static_media_urls
+urlpatterns += extra_urls

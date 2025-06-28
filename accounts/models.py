@@ -1,4 +1,4 @@
-from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -6,7 +6,7 @@ from common.models import BaseModel
 from .manager import UserManager
 
 
-class User(AbstractBaseUser, BaseModel):
+class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255, null=True, blank=True)
