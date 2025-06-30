@@ -10,7 +10,7 @@ def send_email(subject, intro_text, email, token, template, password=None):
         'intro_text': intro_text,
         'token': token,
         'password': password,
-        'frontend_url': 'ecommerce.com',
+        'frontend_url': 'kun.uz',
     }
     html_content = render_to_string(template, context)
     email = EmailMessage(subject, html_content, to=[to_email])

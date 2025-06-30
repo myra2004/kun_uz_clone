@@ -29,7 +29,7 @@ class RegisterSerializer(serializers.Serializer):
             user.password = password
             user.save()
         else:
-            user = User.objects._create_user(email=email, password=password)
+            user = User.objects.create_user(email=email, password=password)
             user.is_active = False
             user.save()
 
@@ -49,6 +49,7 @@ class RegisterSerializer(serializers.Serializer):
 
 class VerifyEmailSerializer(serializers.Serializer):
     token = serializers.CharField()
+    new_password = serializers.CharField(write_only=True)
 
     def validate(self, attrs):
         user_id = verify_email_confirm_token(attrs["token"])
