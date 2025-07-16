@@ -60,6 +60,7 @@ EXTERNAL_APPS = [
     'rest_framework_simplejwt',
     'rosetta',
     'modeltranslation',
+    'django_celery_beat',
 ]
 
 TRANSLATABLE_MODEL_MODULES = (
@@ -356,6 +357,7 @@ CACHES = {
 
 CELERY_BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
 CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}"
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 
 # Email Settings

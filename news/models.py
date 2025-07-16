@@ -40,6 +40,8 @@ class News(BaseModel):
     views_count = models.PositiveIntegerField(default=0)
     liked_by = models.ManyToManyField('accounts.User', related_name='liked_news', blank=True)
 
+    scheduled_at = models.DateTimeField(null=True, blank=True)
+
     def __str__(self):
         return self.title
 

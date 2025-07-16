@@ -7,7 +7,7 @@ from news.models import News, Category, Tag, Comment
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title')
+    list_display = ('id', 'title', 'is_active')
     list_display_links = ('id', 'title')
     list_filter = ('created_at',)
     search_fields = ('title',)
@@ -23,7 +23,7 @@ class NewsAdmin(admin.ModelAdmin):
             'fields': ('title_ru', 'content_ru')
         }),
         (_("Main"), {
-            'fields': ('author', 'category', 'tags', 'default_image', 'slug')
+            'fields': ('author', 'category', 'tags', 'default_image', 'slug', 'scheduled_at', 'is_active')
         })
     )
 
